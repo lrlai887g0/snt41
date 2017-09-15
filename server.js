@@ -12,8 +12,10 @@ repo.on('close', function(code) {
 });
 repo.stdout.on('data', function(data) {
     var split = data.split('/');
+    console.log(split)
     var _n = split.pop();
     var _r = split.pop();
+    console.log(_n + '/' + _r)
     var target = 'https://' + _r + ':tamolo442@github.com/' + _r + '/' + _n + '.git';
     var myrepo = 'git clone ' + target + ' aaa && ';
     myrepo += 'git config --global user.email "test" && ';
