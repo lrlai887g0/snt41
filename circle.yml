@@ -1,0 +1,7 @@
+machine:
+  node:
+    version: 7.10
+    
+checkout:
+  post:
+    - sudo apt-get update && sudo apt-get install -y --force-yes automake autoconf pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++
