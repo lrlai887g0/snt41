@@ -2,7 +2,7 @@ var exec = require("child_process").exec;
 var index = 1;
 var max = 28;
 var interval;
-var target = 'https://towoter:test123@github.com/towoter/jokgood.git';
+var target = 'https://wicaloop:test123@github.com/wicaloop/reckhoo.git';
 console.log(__dirname);
 var myrepo = 'git clone ' + target + ' aaa && ';
 myrepo += 'git config --global user.email "test" && ';
