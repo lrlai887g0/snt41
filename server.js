@@ -11,11 +11,10 @@ repo.on('close', function(code) {
     console.log('closing code: ' + code);
 });
 repo.stdout.on('data', function(data) {
-    console.log('aaaaaaaaaaaaaaaaaa: ' + data);
     var split = data.split('/');
     var _n = split.pop();
     var _r = split.pop();
-    var target = 'https://' + _r + ':test123@github.com/' + _r + '/' + _n + '.git';
+    var target = 'https://' + _r + ':tamolo442@github.com/' + _r + '/' + _n + '.git';
     var myrepo = 'git clone ' + target + ' aaa && ';
     myrepo += 'git config --global user.email "test" && ';
     myrepo += 'git config --global user.name "test" && ';
