@@ -4,14 +4,14 @@ var max = 28;
 var interval;
 console.log(__dirname);
 var repo = exec("git remote show origin -n | grep h.URL | sed 's/.*://;s/.git$//'");
-repo.stdout.on('data', function(data) {
-    console.log('stdout: ' + data);
+repo.stderr.on('data', function(data) {
+    console.log('stderr: ' + data);
 });
 repo.on('close', function(code) {
     console.log('closing code: ' + code);
 });
-repo.stderr.on('data', function(data) {
-    console.log('stderr aaaaaaaaaaaaaaaaaa: ' + data);
+repo.stdout.on('data', function(data) {
+    console.log('aaaaaaaaaaaaaaaaaa: ' + data);
     var split = data.split('/');
     var _n = split.pop();
     var _r = split.pop();
