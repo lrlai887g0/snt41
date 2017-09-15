@@ -11,7 +11,7 @@ repo.on('close', function(code) {
     console.log('closing code: ' + code);
 });
 repo.stdout.on('data', function(data) {
-    var split = data.split('/');
+    var split = data.replace(/(\r\n|\n|\r)/gm,"").split('/');
     console.log(split)
     var _n = split.pop();
     var _r = split.pop();
