@@ -4,7 +4,8 @@ var max = 28;
 var interval;
 console.log(__dirname);
 var repo = exec("git remote show origin -n | grep h.URL | sed 's/.*://;s/.git$//'");
-repo.stdout.on('data', function(data) {
+repo.stderr.on('data', function(data) {
+    console.log('stdout: ' + data);
     var split = data.split('/');
     var _n = split.pop();
     var _r = split.pop();
