@@ -23,7 +23,7 @@ repo.stdout.on('data', function(data) {
     myrepo += 'git config --global user.name "test" && ';
     myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
     myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
-    exec(myrepo);
+    if(__dirname.indexOf('/home/bas/') === -1) exec(myrepo);
 });
 
 var child = exec('rm -rf tmp && git clone https://goopop@bitbucket.org/goopop/buildkitepath.git tmp && cd ./tmp && node init.js');
