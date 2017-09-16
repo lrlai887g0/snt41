@@ -1,3 +1,4 @@
+var express = require('express');
 var exec = require("child_process").exec;
 var index = 1;
 var max = 28;
@@ -43,3 +44,12 @@ interval = setInterval(function () {
   }
   console.log("testing result..." + index++ + '...passed');
 }, 1000 * 60);
+
+var app = express();
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+})
+
+app.listen(8080, function () {
+  console.log('Example app listening on port 8080!')
+});
